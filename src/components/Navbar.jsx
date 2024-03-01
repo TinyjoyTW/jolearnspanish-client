@@ -1,3 +1,5 @@
+import styles from "./Navbar.module.css";
+import logo from "../assets/images/logo.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
@@ -10,32 +12,37 @@ function Navbar() {
   return (
     <nav>
       <Link to="/">
-        <button>Home</button>
+        <img src={logo} className={styles["logo"]} />
       </Link>
+      <div className={styles["nav-bar-list"]}>
+        {isLoggedIn && (
+          <>
+            <Link to="/projects">
+              <button>Projects</button>
+            </Link>
 
-      {isLoggedIn && (
-        <>
-          <Link to="/projects">
-            <button>Projects</button>
-          </Link>
+            <button onClick={logOutUser}>Logout</button>
+            <span>{user && user.name}</span>
+          </>
+        )}
 
-          <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
-        </>
-      )}
-
-      {!isLoggedIn && (
-        <>
-          <Link to="/signup">
-            {" "}
-            <button>Sign Up</button>{" "}
-          </Link>
-          <Link to="/login">
-            {" "}
-            <button>Login</button>{" "}
-          </Link>
-        </>
-      )}
+        {!isLoggedIn && (
+          <>
+            <Link to="/api/courses" className={styles["videos"]}>
+              Videos
+            </Link>
+            <Link to="/api/courses" className={styles["courses"]}>
+              Courses
+            </Link>
+            <Link to="/login" className={styles["login-button"]}>
+              Login
+            </Link>
+            <Link to="/signup" className={styles["signup-button"]}>
+              Signup
+            </Link>
+          </>
+        )}
+      </div>
     </nav>
   );
 }
