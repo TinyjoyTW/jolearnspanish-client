@@ -1,59 +1,55 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import AddTask from "../components/AddTask";
-import TaskCard from "../components/TaskCard";
+import AddCourse from "../components/AddCourse";
 import coursesService from "../services/courses.service";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import styles from "./CourseDetailsPage.module.css"
 
-function ProjectDetailsPage (props) {
+function CourseDetailsPage(props) {
   const [course, setCourse] = useState(null);
   const { courseId } = useParams();
-  
-  
-  const getCourse = () => {
-    // Get the token from the localStorage
-    const storedToken = localStorage.getItem('authToken');
 
-    // Send the token through the request "Authorization" Headers
-    coursesService.getCourse(courseId)
-      .then((response) => {
-        const oneCourse = response.data;
-        setCourse(oneCourse);
-      })
-      .catch((error) => console.log(error));
-  };
-  
-  
-  useEffect(()=> {
+  const getCourse = () =>coursesService
+    .getCourse(courseId)
+    .then((response) => {
+      const oneCourse = response.data;
+      setCourse(oneCourse);
+    })
+    .catch((error) => console.log(error));
+
+  useEffect(() => {
     getCourse();
-  }, [] );
+  }, []);
 
-  
   return (
-    <div className="course-details">
+    <Card className={styles["card"]}>
       {course && (
-        <div>
-          <h1>{course.title}</h1>
-          <img src={course.image} />
-          <p>{course.category}</p>
-          <p>{course.level}</p>
-          <p>{course.price}</p>
-        </div>
+        <>
+          <Card.Img
+            variant="top"
+            src={course.image}
+            className={styles["card-image"]}
+          />
+          <Card.Body className={styles["card-body"]}>
+            <h1>Title: {course.title}</h1>
+            <h3>Category: {course.category}</h3>
+            <h3>Price: {course.price}€</h3>
+            <Button variant="primary" className={styles["enroll-button"]}>Enroll</Button>
+            <Link to="/courses">
+              <Button variant="primary">Back to courses</Button>
+            </Link>
+          </Card.Body>
+        </>
       )}
 
       {/* <AddTask refreshCourses={getCourse} courseId={courseId} /> */}
 
-      {/* {course &&
-        course.tasks.map((task) => <TaskCard key={task._id} {...task} />)} */}
-
-      <Link to="/courses">
-        <button>Back to courses</button>
-      </Link>
-
-      <Link to={`/projects/update/${courseId}`}>
-        <button>Update Project</button>
-      </Link>
-    </div>
+      {/* <Link to={`/projects/update/${courseId}`}>
+        <button>Update Course</button>
+      </Link> */}
+    </Card>
   );
 }
 
-export default ProjectDetailsPage;
+export default CourseDetailsPage;
