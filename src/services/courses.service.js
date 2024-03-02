@@ -15,23 +15,23 @@ class ProjectsService {
     });
   }
 
-    createProject = (requestBody) => {
-      return this.api.post("/api/projects", requestBody);
+    createCourse = (requestBody) => {
+      return this.api.post("/api/courses", requestBody);
     };
 
-    getAllProjects = () => {
-      return this.api.get("/api/projects");
+    getAllCourses = () => {
+      return this.api.get("/api/courses");
     };
 
-    getProject = (id) => {
-      return this.api(`/api/projects/${id}`);
+    getCourse = (id) => {
+      return this.api(`/api/courses/${id}`);
     };
 
-    updateProject = (id, requestBody) => {
-      return this.api.put(`/api/projects/${id}`, requestBody);
+    updateCourse = (id, requestBody) => {
+      return this.api.put(`/api/courses/${id}`, requestBody);
     };
-    deleteProject = (id) => {
-        return this.api.delete(`/api/projects/${id}`);
+    deleteCourse = (id) => {
+        return this.api.delete(`/api/courses/${id}`);
     };
 }
 const projectsService = new ProjectsService();

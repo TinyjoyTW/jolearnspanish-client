@@ -28,10 +28,10 @@ function Navbar() {
 
         {!isLoggedIn && (
           <>
-            <Link to="/api/courses" className={styles["videos"]}>
+            <Link to="/courses" className={styles["videos"]}>
               Videos
             </Link>
-            <Link to="/api/courses" className={styles["courses"]}>
+            <Link to="/courses" className={styles["courses"]}>
               Courses
             </Link>
             <Link to="/login" className={styles["login-button"]}>

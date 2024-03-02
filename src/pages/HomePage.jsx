@@ -1,7 +1,7 @@
 function HomePage() {
   return (
     <div>
-      <h1>Home Page</h1>
+      <h1>歡迎來到Jo要學西文</h1>
     </div>
   );
 }

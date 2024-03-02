@@ -1,14 +1,7 @@
 .signup-page-container {
-  background: linear-gradient(
-    to bottom,
-    #ffe6e6 0%,
-    #ffe6e6 33%,
-    #fff7e6 33%,
-    #fff7e6 66%,
-    #ffe6e6 66%,
-    #ffe6e6 100%
-  );
-
+  background: #cc95c0;
+  background: -webkit-linear-gradient(to right, #7aa1d2, #dbd4b4, #cc95c0);
+  background: linear-gradient(to right, #7aa1d2, #dbd4b4, #cc95c0);
   border: 1px solid grey;
   box-shadow: 0px 2px 3px grey;
   width: 400px;
@@ -48,7 +41,6 @@ label {
 
 input,
 textarea {
-  width: 200px;
   padding: 10px;
   display: inline-block;
   margin: 10px;

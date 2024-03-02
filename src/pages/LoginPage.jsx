@@ -1,11 +1,8 @@
 import styles from "./LoginPage.module.css";
 import { useState, useContext } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import authService from "../services/auth.service";
-
-const API_URL = "http://localhost:5005";
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
@@ -53,10 +50,6 @@ function LoginPage(props) {
           value={password}
           onChange={handlePassword}
         />
-        <label>
-          <input type="checkbox" name="rememberMe" /> Remember me
-        </label>
-
         <button type="submit" className={styles["form-login-button"]}>
           Login
         </button>
@@ -64,7 +57,7 @@ function LoginPage(props) {
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"}>SIGNUP</Link>
     </div>
   );
 }

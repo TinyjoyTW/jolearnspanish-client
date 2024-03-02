@@ -48,37 +48,11 @@ nav {
 .courses, .videos {
   padding: 5px 10px;
   color: white;
-  min-width: 50px;
   margin: 5px;
   font-size: 18px;
-  border-radius: 5px;
   text-decoration: none;
 }
 
-{
-  "user": "65e09d89419cd3b23dba222d",
-  "course": "65e0fe7c956a6f4f29fe523c",
-  "rating": 4,
-  "comment": "I really enjoyed this course. The material was well-presented and helpful."
+.courses:hover, .videos:hover {
+  text-decoration: underline;
 }
-
-courses:
-65e0fe7c956a6f4f29fe523c
-65e1002085ceb608b0dada57
-65e19c7285ceb608b0dada59
-65e19c9885ceb608b0dada5b
-65e19caa85ceb608b0dada5d
-65e19cba85ceb608b0dada5f
-65e19cc785ceb608b0dada61
-65e19cdb85ceb608b0dada63
-
-students:
-65e09d89419cd3b23dba222d
-65e09d9a419cd3b23dba2230
-65e09dba419cd3b23dba2233
-65e1a08085ceb608b0dada66
-65e1a68985ceb608b0dada69
-65e1a6dc85ceb608b0dada6c
-65e1a7f485ceb608b0dada6f
-65e1a8a585ceb608b0dada72
-

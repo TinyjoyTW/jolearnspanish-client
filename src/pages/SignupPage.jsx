@@ -1,10 +1,8 @@
 import styles from "./SignupPage.module.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import authService from "../services/auth.service";
-import PopUpModal from "../components/Modal";
-const API_URL = "http://localhost:5005";
+import Popup from "../components/Popup";
 
 function SignupPage(props) {
   const [email, setEmail] = useState("");
@@ -16,9 +14,9 @@ function SignupPage(props) {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [isShown, setIsShown] = useState(false);
+  const handleClose = () => setIsShown(false);
+  const handleShow = () => setIsShown(true);
 
   const handleSignupSubmit = (e) => {
     e.preventDefault();
@@ -41,14 +39,14 @@ function SignupPage(props) {
 
   return (
     <div className={styles["signup-page-container"]}>
-      <PopUpModal
+      <Popup
         modalTitle={"Signup successful!"}
-        closePopUpModal={handleClose}
-        showState={show}
-        redirectToLoginPage={redirectToLoginPage}
+        closePopup={handleClose}
+        isShown={isShown}
+        onClose={redirectToLoginPage}
         bodyText={"Welcome to the club!"}
       />
-      <h1>Sign Up</h1>
+      <h1>SIGNUP</h1>
 
       <form onSubmit={handleSignupSubmit} className={styles["signup-form"]}>
         <label>Email:</label>
@@ -63,7 +61,7 @@ function SignupPage(props) {
         />
 
         <button type="submit" className={styles["form-signup-button"]}>
-          Sign Up
+          Signup
         </button>
       </form>
 

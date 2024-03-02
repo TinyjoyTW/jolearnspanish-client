@@ -2,14 +2,13 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
-import ProjectListPage from "./pages/ProjectListPage";
-import ProjectDetailsPage from "./pages/ProjectDetailsPage";
-import EditProjectPage from "./pages/EditProjectPage";
+import CourseListPage from "./pages/CourseListPage";
+import CourseDetailsPage from "./pages/CourseDetailsPage";
+import EditCoursePage from "./pages/EditCoursePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 
 function App() {
@@ -21,18 +20,18 @@ function App() {
         <Route path="/" element={<HomePage />} />
 
         <Route
-          path="/projects"
-          element={ <IsPrivate> <ProjectListPage /> </IsPrivate> } 
+          path="/courses"
+          element={<CourseListPage />} 
         />
 
         <Route
-          path="/projects/:projectId"
-          element={ <IsPrivate> <ProjectDetailsPage /> </IsPrivate> }
+          path="/coruses/:courseId"
+          element={<CourseDetailsPage /> }
         />
 
         <Route
-          path="/projects/edit/:projectId"
-          element={ <IsPrivate> <EditProjectPage /> </IsPrivate> } 
+          path="/courses/edit/:courseId"
+          element={ <IsPrivate> <EditCoursePage /> </IsPrivate> } 
         />
         
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
