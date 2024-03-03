@@ -34,11 +34,12 @@
   cursor: pointer;
 }
 
-label {
+.signup-page-container label {
   width: 200px;
   display: block;
 }
 
+.signup-page-container
 input,
 textarea {
   padding: 10px;

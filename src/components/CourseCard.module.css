@@ -1,15 +1,19 @@
 .card {
   align-items: center;
-  gap: 5px;
-  width: 400px;
-  padding: 10px;
+  gap: 0.5rem;
+  padding: 0.8rem;
   box-shadow: 0px 2px 3px grey;
-  margin-bottom: 20px;
+  margin-bottom: 1.3rem;
   background: #94a7c8;
-  border-radius: 5px;
+  border-radius: 0.5rem;
 }
 
 .card-images {
-  width: 350px;
-  height: 250px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.5;
+}
+
+.card button {
+  margin-top: 0.5rem;
 }

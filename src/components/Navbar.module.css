@@ -35,7 +35,8 @@ nav {
   transform: scale(1.1);
 }
 
-.login-button {
+.login-button,
+.logout-button {
   padding: 5px 10px;
   min-width: 50px;
   margin: 5px;
@@ -45,7 +46,8 @@ nav {
   text-decoration: none;
 }
 
-.courses, .videos {
+.courses,
+.videos {
   padding: 5px 10px;
   color: white;
   margin: 5px;
@@ -53,6 +55,7 @@ nav {
   text-decoration: none;
 }
 
-.courses:hover, .videos:hover {
+.courses:hover,
+.videos:hover {
   text-decoration: underline;
 }

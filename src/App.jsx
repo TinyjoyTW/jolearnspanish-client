@@ -7,7 +7,7 @@ import CourseDetailsPage from "./pages/CourseDetailsPage";
 import EditCoursePage from "./pages/EditCoursePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import IsPrivate from "./components/IsPrivate";
+import IsAdmin from "./components/IsAdmin";
 import IsAnon from "./components/IsAnon";
 
 
@@ -30,8 +30,8 @@ function App() {
         />
 
         <Route
-          path="/courses/edit/:courseId"
-          element={ <IsPrivate> <EditCoursePage /> </IsPrivate> } 
+          path="/courses/update/:courseId"
+          element={ <IsAdmin> <EditCoursePage /> </IsAdmin> } 
         />
         
         <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />

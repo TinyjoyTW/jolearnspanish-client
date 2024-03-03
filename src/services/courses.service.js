@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class ProjectsService {
+class CoursesService {
   constructor() {
     this.api = axios.create({
       baseURL: import.meta.env.SERVER_URL || "http://localhost:5005",
@@ -34,6 +34,6 @@ class ProjectsService {
         return this.api.delete(`/api/courses/${id}`);
     };
 }
-const projectsService = new ProjectsService();
-export default projectsService;
+const coursesService = new CoursesService();
+export default coursesService;
 
