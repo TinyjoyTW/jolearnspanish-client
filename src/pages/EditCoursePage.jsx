@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import coursesService from "../services/courses.service";
 import Button from "react-bootstrap/Button";
@@ -12,7 +12,9 @@ function EditCoursePage() {
   const [level, setLevel] = useState("");
   const [price, setPrice] = useState(null);
   const [error, setError] = useState(null);
-
+  const updateDialogRef = useRef();
+  const deleteDialogRef = useRef();
+  
   const navigate = useNavigate();
   const { courseId } = useParams();
 
@@ -34,8 +36,8 @@ function EditCoursePage() {
     e.preventDefault();
     const requestBody = { title, image, category, level, price };
 
-    coursesService.updateCourse(courseId, requestBody).then((response) => {
-      navigate(`/courses/${courseId}`);
+    coursesService.updateCourse(courseId, requestBody).then(() => {
+      updateDialogRef.current.showModal();
     });
   };
 
@@ -43,8 +45,7 @@ function EditCoursePage() {
     coursesService
       .deleteCourse(courseId)
       .then(() => {
-        alert('Deleted successfully!');
-        navigate("/courses");
+        deleteDialogRef.current.showModal();
       })
       .catch((err) => {
         console.log(err);
@@ -117,6 +118,16 @@ function EditCoursePage() {
           Delete course
         </Button>
       </div>
+
+      <dialog ref={updateDialogRef}>
+        <h2>Updated successfully!</h2>
+        <Button onClick={() => navigate(`/courses/${courseId}`)}>Ok</Button>
+      </dialog>
+      
+      <dialog ref={deleteDialogRef}>
+        <h2>Deleted successfully!</h2>
+        <Button onClick={() => navigate(`/courses`)}>Ok</Button>
+      </dialog>
     </div>
   );
 }
