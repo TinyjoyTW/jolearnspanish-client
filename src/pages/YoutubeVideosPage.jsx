@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-// import videosService from "../services/videos.service";
+import videosService from "../services/videos.service";
 import styles from "./YoutubeVideosPage.module.css";
+import { parseYouTubeVideosFromXML } from "../utils/xmlVideoParser";
 
 const YOUTUBE_API =
-  "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCZB26wdYoexth38wmYzLkbQ&maxResults=50&key=AIzaSyBoIr5XcqzH6jKSSOzFaAYozPDTpJpiNXs";
+  "https://www.youtube.com/feeds/videos.xml?channel_id=UCZB26wdYoexth38wmYzLkbQ";
 
 function YoutubeVideosPage() {
   const [videos, setVideos] = useState([]);
@@ -12,14 +12,19 @@ function YoutubeVideosPage() {
   const [loading, setLoading] = useState(true);
 
   const getAllVideos = () => {
-    axios
-      .get(YOUTUBE_API)
-      .then((response) => setVideos(response.data))
+    videosService
+      .getAllVideos()
+      .then((response) => {
+        const videos = parseYouTubeVideosFromXML(response.data)
+        setVideos(videos);
+      })
       .catch((error) => {
         console.log(error);
         setError(error);
       })
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -33,17 +38,24 @@ function YoutubeVideosPage() {
     );
   }
 
-  if (loading || !videos || !videos.items) return <div>Loading...</div>;
+  if (loading || !videos) return <div>Loading...</div>;
 
   return (
-    <div className={styles["video-list-container"]}>
+    <div>
       <h1>Check out my videos: </h1>
-      <ul>
-        {videos?.items?.map((video) => (
-          <div key={video.id}>{video.snippet.title}</div>
+      {/* <div> */}
+      <ul className={styles["video-list"]}>
+        {videos.map((video) => (
+          <li key={video.id}>
+            <a href={video.link}>
+              <h3>{video.title}</h3>
+              <img src={video.thumbnail} className={styles["thumbnails"]} />
+            </a>
+          </li>
         ))}
       </ul>
     </div>
+    // </div>
   );
 }
 

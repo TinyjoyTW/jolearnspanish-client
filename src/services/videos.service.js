@@ -14,9 +14,7 @@ class VideosService {
     });
   }
   getAllVideos = () => {
-    return this.api.get(
-      "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCZB26wdYoexth38wmYzLkbQ&key=AIzaSyBu5IfG-lzCeyCaK7I2fb5RdNQMXrxPb84%20"
-    );
+    return this.api.get("/api/videos");
   };
 }
 
