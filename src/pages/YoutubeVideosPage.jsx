@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import videosService from "../services/videos.service";
-import styles from "./YoutubeVideosPage.module.css";
 import { parseYouTubeVideosFromXML } from "../utils/xmlVideoParser";
-
-const YOUTUBE_API =
-  "https://www.youtube.com/feeds/videos.xml?channel_id=UCZB26wdYoexth38wmYzLkbQ";
+import Card from "react-bootstrap/Card";
+import styles from "./YoutubeVideosPage.module.css";
 
 function YoutubeVideosPage() {
   const [videos, setVideos] = useState([]);
@@ -15,7 +13,7 @@ function YoutubeVideosPage() {
     videosService
       .getAllVideos()
       .then((response) => {
-        const videos = parseYouTubeVideosFromXML(response.data)
+        const videos = parseYouTubeVideosFromXML(response.data);
         setVideos(videos);
       })
       .catch((error) => {
@@ -41,21 +39,15 @@ function YoutubeVideosPage() {
   if (loading || !videos) return <div>Loading...</div>;
 
   return (
-    <div>
-      <h1>Check out my videos: </h1>
-      {/* <div> */}
-      <ul className={styles["video-list"]}>
-        {videos.map((video) => (
-          <li key={video.id}>
-            <a href={video.link}>
-              <h3>{video.title}</h3>
-              <img src={video.thumbnail} className={styles["thumbnails"]} />
-            </a>
-          </li>
-        ))}
-      </ul>
+    <div className={styles["video-list-container"]}>
+      {videos.map((video) => (
+        <Card key={video.id} className={styles["card"]}>
+          
+            <Card.Title className={styles["title"]}><a href={video.link} target="_blank" rel="noreferrer">{video.title}</a></Card.Title>
+            <Card.Img src={video.thumbnail} className={styles["thumbnails"]} />
+        </Card>
+      ))}
     </div>
-    // </div>
   );
 }
 

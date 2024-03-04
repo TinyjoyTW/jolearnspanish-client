@@ -8,14 +8,45 @@
   text-align: center;
 }
 
-.video-list {
+.video-list-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
   margin: 1rem 1rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  align-items: center;
+  justify-content: center;
+  background: #94a7c8;
+  padding: 1rem 0;
+}
+
+@media (min-width: 700px) {
+  .video-list-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .video-list-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.title {
+  width: 20rem;
+  margin-bottom: 1rem;
 }
 
 .thumbnails {
-  width: 200px;
-  height: 150px;
+width: 250px;
+margin-bottom: 10px;
 }
