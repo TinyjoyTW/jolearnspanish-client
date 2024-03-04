@@ -9,34 +9,50 @@ import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import IsAdmin from "./components/IsAdmin";
 import IsAnon from "./components/IsAnon";
-
+import YoutubeVideosPage from "./pages/YoutubeVideosPage";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
 
-      <Routes>      
+      <Routes>
         <Route path="/" element={<HomePage />} />
 
-        <Route
-          path="/courses"
-          element={<CourseListPage />} 
-        />
+        <Route path="/courses" element={<CourseListPage />} />
 
-        <Route
-          path="/courses/:courseId"
-          element={<CourseDetailsPage /> }
-        />
+        <Route path="/courses/:courseId" element={<CourseDetailsPage />} />
 
         <Route
           path="/courses/update/:courseId"
-          element={ <IsAdmin> <EditCoursePage /> </IsAdmin> } 
+          element={
+            <IsAdmin>
+              {" "}
+              <EditCoursePage />{" "}
+            </IsAdmin>
+          }
         />
-        
-        <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
-        <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
 
+        <Route path="/videos" element={<YoutubeVideosPage />} />
+
+        <Route
+          path="/signup"
+          element={
+            <IsAnon>
+              {" "}
+              <SignupPage />{" "}
+            </IsAnon>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <IsAnon>
+              {" "}
+              <LoginPage />{" "}
+            </IsAnon>
+          }
+        />
       </Routes>
     </div>
   );

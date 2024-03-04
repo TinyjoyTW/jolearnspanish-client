@@ -40,3 +40,17 @@
   background-color: white;
   cursor: pointer;
 }
+
+.login-page-container label {
+  width: 200px;
+  display: block;
+}
+
+.login-page-container
+input,
+textarea {
+  padding: 10px;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 5px;
+}

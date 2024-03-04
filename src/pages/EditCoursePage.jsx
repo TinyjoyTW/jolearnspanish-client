@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import coursesService from "../services/courses.service";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import styles from "./EditCoursePage.module.css";
 
 function EditCoursePage() {
@@ -111,8 +110,8 @@ function EditCoursePage() {
         </div>
       </form>
       <div className={styles["buttons-container"]}>
-        <Link to="/courses">
-          <Button variant="primary">Back to courses</Button>
+        <Link to={`/courses/${courseId}`}>
+          <Button variant="primary">Back</Button>
         </Link>
         <Button className={styles["delete-button"]} onClick={deleteCourse}>
           Delete course
@@ -123,7 +122,7 @@ function EditCoursePage() {
         <h2>Updated successfully!</h2>
         <Button onClick={() => navigate(`/courses/${courseId}`)}>Ok</Button>
       </dialog>
-      
+
       <dialog ref={deleteDialogRef}>
         <h2>Deleted successfully!</h2>
         <Button onClick={() => navigate(`/courses`)}>Ok</Button>

@@ -7,7 +7,6 @@ function CourseListPage() {
   const [courses, setCourses] = useState([]);
 
   const getAllCourses = () => {
-    // Send the token through the request "Authorization" Headers
     coursesService.getAllCourses()
       .then((response) => setCourses(response.data))
       .catch((error) => console.log(error));

@@ -15,7 +15,7 @@ function Navbar() {
       <div className={styles["nav-bar-list"]}>
         {isLoggedIn && (
           <>
-            <Link to="/courses" className={styles["videos"]}>
+            <Link to="/videos" className={styles["videos"]}>
               Videos
             </Link>
             <Link to="/courses" className={styles["courses"]}>
@@ -32,7 +32,7 @@ function Navbar() {
 
         {!isLoggedIn && (
           <>
-            <Link to="/courses" className={styles["videos"]}>
+            <Link to="/videos" className={styles["videos"]}>
               Videos
             </Link>
             <Link to="/courses" className={styles["courses"]}>

@@ -1,32 +1,24 @@
 import axios from "axios";
 
-class AuthService {
+class VideosService {
   constructor() {
     this.api = axios.create({
       baseURL: import.meta.env.SERVER_URL || "http://localhost:5005",
     });
     this.api.interceptors.request.use((config) => {
       const storedToken = localStorage.getItem("authToken");
-
       if (storedToken) {
         config.headers = { Authorization: `Bearer ${storedToken}` };
       }
       return config;
     });
   }
-
-  signup = (requestBody) => {
-    return this.api.post("/auth/signup", requestBody);
-  };
-
-  login = (requestBody) => {
-    return this.api.post("/auth/login", requestBody);
-  };
-
-  verify = () => {
-    return this.api.get("/auth/verify");
+  getAllVideos = () => {
+    return this.api.get(
+      "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCZB26wdYoexth38wmYzLkbQ&key=AIzaSyBu5IfG-lzCeyCaK7I2fb5RdNQMXrxPb84%20"
+    );
   };
 }
 
-const authService = new AuthService();
-export default authService;
+const videosService = new VideosService();
+export default videosService;
