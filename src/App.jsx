@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./App.module.css"
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -11,10 +11,11 @@ import LoginPage from "./pages/LoginPage";
 import IsAdmin from "./components/IsAdmin";
 import IsAnon from "./components/IsAnon";
 import YoutubeVideosPage from "./pages/YoutubeVideosPage";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles["app"]}>
       <Navbar />
 
       <Routes>
@@ -28,13 +29,20 @@ function App() {
           path="/courses/update/:courseId"
           element={
             <IsAdmin>
-              {" "}
               <EditCoursePage />{" "}
             </IsAdmin>
           }
         />
 
         <Route path="/videos" element={<YoutubeVideosPage />} />
+        <Route
+          path="/admin/dashboard"
+          element={
+            <IsAdmin>
+              <AdminDashboard />
+            </IsAdmin>
+          }
+        />
 
         <Route
           path="/signup"

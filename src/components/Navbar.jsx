@@ -15,17 +15,18 @@ function Navbar() {
       <div className={styles["nav-bar-list"]}>
         {isLoggedIn && (
           <>
-          {user.isAdmin && (<div className={styles["admin"]}>Admin</div>)}
+            {user.isAdmin && (
+              <Link to="/admin/dashboard/" className={styles["admin"]}>
+                Admin
+              </Link>
+            )}
             <Link to="/videos" className={styles["videos"]}>
               Videos
             </Link>
             <Link to="/courses" className={styles["courses"]}>
               Courses
             </Link>
-            <button
-              onClick={logOutUser}
-              className={styles["logout-button"]}
-            >
+            <button onClick={logOutUser} className={styles["logout-button"]}>
               Logout
             </button>
           </>

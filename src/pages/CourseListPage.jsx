@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import CourseCard from "../components/CourseCard";
 import coursesService from "../services/courses.service";
-import styles from "./CourseListContainer.module.css"
+import styles from "./CourseListPage.module.css"
 
 function CourseListPage() {
   const [courses, setCourses] = useState([]);
@@ -19,7 +19,7 @@ function CourseListPage() {
   return (
     <div className={styles["course-list-container"]}>
       {courses.map((course) => (
-        <CourseCard key={course._id} {...course} />
+        <CourseCard key={course._id} {...course}/>
       ))}
     </div>
   );
