@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import CourseListPage from "./pages/CourseListPage";
 import CourseDetailsPage from "./pages/CourseDetailsPage";
@@ -54,6 +55,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </div>
   );
 }

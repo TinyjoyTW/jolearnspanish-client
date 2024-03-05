@@ -79,7 +79,7 @@ function EditCoursePage() {
 
         <label>Category:</label>
         <select name="category" onChange={(e) => setCategory(e.target.value)}>
-          <option value="">-</option>
+          <option value="">{category}</option>
           <option value="vocabulary">Vocabulary</option>
           <option value="grammar">Grammar</option>
           <option value="conversation">Conversation</option>
@@ -90,7 +90,7 @@ function EditCoursePage() {
         </select>
         <label>Level:</label>
         <select name="level" onChange={(e) => setCategory(e.target.value)}>
-          <option value="">-</option>
+          <option value="">{level}</option>
           <option value="A1">A1</option>
           <option value="A2">A2</option>
           <option value="B1">B1</option>
@@ -118,12 +118,12 @@ function EditCoursePage() {
         </Button>
       </div>
 
-      <dialog ref={updateDialogRef}>
-        <h2>Updated successfully!</h2>
+      <dialog ref={updateDialogRef} className={styles["update-dialog"]}>
+        <h3>Updated successfully!</h3>
         <Button onClick={() => navigate(`/courses/${courseId}`)}>Ok</Button>
       </dialog>
 
-      <dialog ref={deleteDialogRef}>
+      <dialog ref={deleteDialogRef} className={styles["delete-dialog"]}>
         <h2>Deleted successfully!</h2>
         <Button onClick={() => navigate(`/courses`)}>Ok</Button>
       </dialog>

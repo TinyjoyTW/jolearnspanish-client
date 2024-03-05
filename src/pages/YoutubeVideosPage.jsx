@@ -44,7 +44,7 @@ function YoutubeVideosPage() {
         <Card key={video.id} className={styles["card"]}>
           
             <Card.Title className={styles["title"]}><a href={video.link} target="_blank" rel="noreferrer">{video.title}</a></Card.Title>
-            <Card.Img src={video.thumbnail} className={styles["thumbnails"]} />
+            <Card.Img src={video.thumbnail} className={styles["thumbnails"]} alt="video image"/>
         </Card>
       ))}
     </div>

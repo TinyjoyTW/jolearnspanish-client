@@ -43,13 +43,14 @@ function CourseDetailsPage(props) {
         <Card.Img
           variant="top"
           src={course.image}
-          className={styles["card-image"]}
+          className={styles["card-image"]} alt="course image"
         />
         <Card.Body className={styles["card-body"]}>
           <h1>Title: {course.title}</h1>
           <h4>Category: {course.category}</h4>
+          <h4>Level: {course.level}</h4>
           <h4>Price: {course.price}€</h4>
-          {!user.isAdmin && (
+          {!user?.isAdmin && (
             <Button variant="primary" className={styles["enroll-button"]}>
               Enroll
             </Button>

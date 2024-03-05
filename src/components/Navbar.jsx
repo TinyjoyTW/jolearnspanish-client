@@ -5,16 +5,17 @@ import { useContext } from "react";
 import { AuthContext } from "../context/auth.context";
 
 function Navbar() {
-  const { isLoggedIn, logOutUser } = useContext(AuthContext);
+  const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
 
   return (
     <nav>
       <Link to="/">
-        <img src={logo} className={styles["logo"]} />
+        <img src={logo} className={styles["logo"]} alt="logo" />
       </Link>
       <div className={styles["nav-bar-list"]}>
         {isLoggedIn && (
           <>
+          {user.isAdmin && (<div className={styles["admin"]}>Admin</div>)}
             <Link to="/videos" className={styles["videos"]}>
               Videos
             </Link>

@@ -24,9 +24,12 @@ function LoginPage(props) {
       .login(requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
-
         storeToken(response.data.authToken);
         authenticateUser();
+        console.log(response);
+        if (response.data.isAdmin) {
+          alert("hi, you're logged in as an admin.");
+        }
         navigate("/");
       })
       .catch((error) => {

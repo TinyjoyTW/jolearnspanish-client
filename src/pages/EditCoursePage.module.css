@@ -30,6 +30,10 @@
   }
 }
 
+.edit-course-container button {
+  cursor: pointer;
+}
+
 .update-form {
   display: flex;
   flex-direction: column;
@@ -37,7 +41,8 @@
   gap: 0.3rem;
 }
 
-.update-form select, .update-form input {
+.update-form select,
+.update-form input {
   border-radius: 0.3rem;
 }
 
@@ -77,4 +82,15 @@
   &:after {
     content: "?";
   }
+}
+
+.update-dialog[open],
+.delete-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0.2rem solid black;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
 }

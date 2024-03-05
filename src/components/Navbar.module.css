@@ -10,7 +10,7 @@ nav {
 .logo {
   width: 50px;
   height: 50px;
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 
 .nav-bar-list {
@@ -58,4 +58,13 @@ nav {
 .courses:hover,
 .videos:hover {
   text-decoration: underline;
+}
+
+.admin {
+  padding: 5px 10px;
+  color: pink;
+  font-weight: 900;
+  margin: 5px;
+  font-size: 18px;
+  text-decoration: none;
 }
