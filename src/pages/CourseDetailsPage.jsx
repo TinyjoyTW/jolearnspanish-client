@@ -10,6 +10,9 @@ function CourseDetailsPage(props) {
   const { isLoggedIn, user } = useContext(AuthContext);
   const [course, setCourse] = useState(null);
   const [error, setError] = useState(null);
+  const isUserEnrolled = course?.studentsEnrolled?.includes(user._id);
+
+  console.log(isUserEnrolled);
 
   const { courseId } = useParams();
 
@@ -19,6 +22,19 @@ function CourseDetailsPage(props) {
       .then((response) => {
         const oneCourse = response.data;
         setCourse(oneCourse);
+      })
+      .catch((error) => {
+        console.log(error);
+        setError(error);
+      });
+
+  const enrollCourse = () =>
+    coursesService
+      .enrollCourse(courseId)
+      .then((response) => {
+        // Instead of re-fetching all courses again, we can just update the course state with the response.data
+        // because from the backend we're responding to the frontend with the whole updated course object
+        setCourse(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -36,7 +52,7 @@ function CourseDetailsPage(props) {
       </Card>
     );
   }
-
+  
   return (
     course && (
       <Card className={styles["card"]}>
@@ -51,7 +67,7 @@ function CourseDetailsPage(props) {
           <h4>Level: {course.level}</h4>
           <h4>Price: {course.price}€</h4>
           {!user?.isAdmin && (
-            <Button variant="primary" className={styles["enroll-button"]}>
+            <Button variant="primary" className={styles["enroll-button"]} onClick={enrollCourse} disabled={isUserEnrolled}>
               Enroll
             </Button>
           )}
