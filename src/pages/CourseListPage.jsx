@@ -5,6 +5,7 @@ import styles from "./CourseListPage.module.css"
 
 function CourseListPage() {
   const [courses, setCourses] = useState([]);
+  
 
   const getAllCourses = () => {
     coursesService.getAllCourses()

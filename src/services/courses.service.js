@@ -36,6 +36,10 @@ class CoursesService {
   enrollCourse = (id) => {
     return this.api.post(`/api/courses/${id}/enroll`);
   };
+
+  getSumOfCourses = () => {
+    return this.api.get(`/api/sum-of-courses`);
+  };
 }
 const coursesService = new CoursesService();
 export default coursesService;

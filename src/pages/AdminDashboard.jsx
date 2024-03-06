@@ -1,18 +1,34 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../context/auth.context";
+import coursesService from "../services/courses.service";
+import { useContext, useEffect,useState } from "react";
 import CreateCourseForm from "../components/CreateCourseForm";
 import styles from "./AdminDashboard.module.css";
 
 function AdminDashboard() {
+  const [sumOfCourses, setSumOfCourses] = useState("");
+  const [error, setError] = useState(null);
+
+  const getSumOfCourses = () => {
+    coursesService
+      .getSumOfCourses()
+      .then((response) => setSumOfCourses(response.data))
+      .catch((error) => {
+        console.log(error);
+        setError(error);
+      });
+  };
+
+  useEffect(() => {
+    getSumOfCourses();
+  }, []);
+
   return (
     <>
       <h1 className={styles["admin-dashboard-h1"]}>Admin Dashboard</h1>
       <div className={styles["admin-dashboard-container"]}>
         <div className={styles["dashboard-courses"]}>
           <h3>Courses</h3>
-          <p>Amout: </p>
-          
+          <p>Amount: {sumOfCourses} </p>
           <CreateCourseForm />
         </div>
         <div className={styles["dashboard-users"]}>
