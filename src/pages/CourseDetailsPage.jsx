@@ -10,9 +10,7 @@ function CourseDetailsPage(props) {
   const { isLoggedIn, user } = useContext(AuthContext);
   const [course, setCourse] = useState(null);
   const [error, setError] = useState(null);
-  const isUserEnrolled = course?.studentsEnrolled?.includes(user._id);
-
-  console.log(isUserEnrolled);
+  const isUserEnrolled = course?.studentsEnrolled?.includes(user?._id);
 
   const { courseId } = useParams();
 

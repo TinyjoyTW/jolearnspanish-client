@@ -9,7 +9,7 @@ function EditCoursePage() {
   const [image, setImage] = useState("");
   const [category, setCategory] = useState("");
   const [level, setLevel] = useState("");
-  const [price, setPrice] = useState(null);
+  const [price, setPrice] = useState("");
   const [error, setError] = useState(null);
   const updateDialogRef = useRef();
   const deleteDialogRef = useRef();
@@ -102,6 +102,7 @@ function EditCoursePage() {
         <input
           type="number"
           name="price"
+          min={0}
           value={price}
           onChange={(e) => setPrice(e.target.value)}
         />
