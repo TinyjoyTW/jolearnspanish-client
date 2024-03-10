@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding: 1rem;
+  box-shadow: 0px 1rem 1rem grey;
+  margin: 2rem auto;
+  background: #94a7c8;
+  border-radius: 0.5rem;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.card h1 {
+  font-size: 25px;
+}
+
+.card h4 {
+  text-transform: capitalize;
+}
+
+.enroll-button {
+  text-transform: uppercase;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.enroll-button:hover {
+  transform: scale(1.1);
+}
+
+.update-delete-container {
+  display: flex;
+}
+
+.error-message {
+  position: fixed;
+  left: 0;
+  bottom: 50%;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}

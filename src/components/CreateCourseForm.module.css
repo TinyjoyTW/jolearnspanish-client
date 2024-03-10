@@ -1,0 +1,32 @@
+.form-dialog {
+  width: 50vw;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+::backdrop {
+  backdrop-filter: blur(5px);
+}
+
+.create-course-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-course-form button {
+  margin-top: 1rem;
+  align-self: center;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.success {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: darkgreen;
+}

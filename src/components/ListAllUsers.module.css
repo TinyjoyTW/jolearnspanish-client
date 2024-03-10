@@ -1,0 +1,12 @@
+.list-all-users-dialog {
+  border-radius: 5px;
+  border: 2px solid;
+}
+
+.user-emails {
+  color: darkblue;
+}
+
+::backdrop {
+  backdrop-filter: blur(5px);
+}

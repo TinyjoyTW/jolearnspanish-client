@@ -1,0 +1,70 @@
+nav {
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-left: 1rem;
+}
+
+.nav-bar-list {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.signup-button {
+  padding: 5px 10px;
+  min-width: 50px;
+  margin: 5px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  background-color: white;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.signup-button:hover {
+  transform: scale(1.1);
+}
+
+.login-button,
+.logout-button {
+  padding: 5px 10px;
+  min-width: 50px;
+  margin: 5px;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: white;
+  text-decoration: none;
+}
+
+.courses,
+.videos {
+  padding: 5px 10px;
+  color: white;
+  margin: 5px;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.courses:hover,
+.videos:hover {
+  text-decoration: underline;
+}
+
+.admin {
+  padding: 5px 10px;
+  color: pink;
+  font-weight: 900;
+  margin: 5px;
+  font-size: 18px;
+  text-decoration: none;
+}

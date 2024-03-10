@@ -1,10 +1,8 @@
 import { useState, useContext } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import authService from "../services/auth.service";
-
-const API_URL = "http://localhost:5005";
+import styles from "./LoginPage.module.css";
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
@@ -22,12 +20,16 @@ function LoginPage(props) {
     e.preventDefault();
     const requestBody = { email, password };
 
-    authService.login(requestBody)
+    authService
+      .login(requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
-
         storeToken(response.data.authToken);
         authenticateUser();
+        console.log(response);
+        if (response.data.isAdmin) {
+          alert("hi, you're logged in as an admin.");
+        }
         navigate("/");
       })
       .catch((error) => {
@@ -37,10 +39,10 @@ function LoginPage(props) {
   };
 
   return (
-    <div className="LoginPage">
+    <div className={styles["login-page-container"]}>
       <h1>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
+      <form onSubmit={handleLoginSubmit} className={styles["login-form"]}>
         <label>Email:</label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -51,13 +53,14 @@ function LoginPage(props) {
           value={password}
           onChange={handlePassword}
         />
-
-        <button type="submit">Login</button>
+        <button type="submit" className={styles["form-login-button"]}>
+          Login
+        </button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <Link to={"/signup"}>SIGNUP</Link>
     </div>
   );
 }

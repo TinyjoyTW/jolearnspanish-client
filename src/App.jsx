@@ -1,43 +1,81 @@
-import "./App.css";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import ProjectListPage from "./pages/ProjectListPage";
-import ProjectDetailsPage from "./pages/ProjectDetailsPage";
-import EditProjectPage from "./pages/EditProjectPage";
-
+import CourseListPage from "./pages/CourseListPage";
+import CourseDetailsPage from "./pages/CourseDetailsPage";
+import EditCoursePage from "./pages/EditCoursePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
-import IsPrivate from "./components/IsPrivate";
+import IsAdmin from "./components/IsAdmin";
 import IsAnon from "./components/IsAnon";
+import YoutubeVideosPage from "./pages/YoutubeVideosPage";
+import AdminDashboard from "./pages/AdminDashboard";
+import UserDetailsPage from "./pages/UserDetailsPage";
+import styles from "./App.module.css";
 
 function App() {
+
   return (
-    <div className="App">
+    <div className={styles["app"]}>
       <Navbar />
 
-      <Routes>      
-        <Route path="/" element={<HomePage />} />
+      <div>
+        <Routes>
+          <Route
+            path="/users/:userId"
+            element={
+              <IsAdmin>
+                <UserDetailsPage />
+              </IsAdmin>
+            }
+          />
 
-        <Route
-          path="/projects"
-          element={ <IsPrivate> <ProjectListPage /> </IsPrivate> } 
-        />
+          <Route path="/" element={<HomePage />} />
 
-        <Route
-          path="/projects/:projectId"
-          element={ <IsPrivate> <ProjectDetailsPage /> </IsPrivate> }
-        />
+          <Route path="/courses" element={<CourseListPage />} />
 
-        <Route
-          path="/projects/edit/:projectId"
-          element={ <IsPrivate> <EditProjectPage /> </IsPrivate> } 
-        />
-        
-        <Route path="/signup" element={<IsAnon> <SignupPage /> </IsAnon>} />
-        <Route path="/login" element={<IsAnon> <LoginPage /> </IsAnon>} />
+          <Route path="/courses/:courseId" element={<CourseDetailsPage />} />
 
-      </Routes>
+          <Route
+            path="/courses/update/:courseId"
+            element={
+              <IsAdmin>
+                <EditCoursePage />{" "}
+              </IsAdmin>
+            }
+          />
+
+          <Route path="/videos" element={<YoutubeVideosPage />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <IsAdmin>
+                <AdminDashboard />
+              </IsAdmin>
+            }
+          />
+
+          <Route
+            path="/signup"
+            element={
+              <IsAnon>
+                <SignupPage />
+              </IsAnon>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <IsAnon>
+                <LoginPage />
+              </IsAnon>
+            }
+          />
+        </Routes>
+      </div>
+      <Footer />
     </div>
   );
 }

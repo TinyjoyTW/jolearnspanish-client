@@ -1,0 +1,96 @@
+.error-message {
+  position: fixed;
+  left: 0;
+  bottom: 50%;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.edit-course-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #94a7c8;
+  width: 20rem;
+  margin: 2rem auto;
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 400px) {
+  .edit-course-container {
+    width: 30rem;
+  }
+}
+@media (min-width: 800px) {
+  .edit-course-container {
+    width: 40rem;
+  }
+}
+
+.edit-course-container button {
+  cursor: pointer;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.3rem;
+}
+
+.update-form select,
+.update-form input {
+  border-radius: 0.3rem;
+}
+
+@media (min-width: 400px) {
+  .update-form input {
+    width: 15rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .update-form input {
+    width: 20rem;
+  }
+}
+
+.save-button {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.buttons-container {
+  margin-top: 1rem;
+}
+
+.delete-button {
+  margin-left: 1rem;
+}
+
+.delete-button:hover {
+  background-color: red;
+  text-transform: uppercase;
+
+  &:before {
+    content: "¿";
+  }
+
+  &:after {
+    content: "?";
+  }
+}
+
+.update-dialog[open],
+.delete-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0.2rem solid black;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}

@@ -1,0 +1,51 @@
+.error-message {
+  position: fixed;
+  left: 0;
+  bottom: 50%;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
+.video-list-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+  margin: 1rem 1rem;
+}
+
+.card {
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  background: #94a7c8;
+  padding: 1rem 0;
+}
+
+@media (min-width: 700px) {
+  .video-list-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .video-list-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card a {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.title {
+  width: 20rem;
+  margin-bottom: 1rem;
+}
+
+.thumbnails {
+width: 250px;
+margin-bottom: 10px;
+}
