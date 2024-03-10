@@ -3,7 +3,9 @@ import axios from "axios";
 class ReviewsService {
   constructor() {
     this.api = axios.create({
-      baseURL: import.meta.env.SERVER_URL || "http://localhost:5005",
+      baseURL:
+        import.meta.env.SERVER_URL ||
+        "https://jolearnspanish-server-dev.adaptable.app/",
     });
     this.api.interceptors.request.use((config) => {
       const storedToken = localStorage.getItem("authToken");
