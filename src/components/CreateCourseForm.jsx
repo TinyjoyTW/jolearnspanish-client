@@ -58,7 +58,7 @@ const CreateCourseForm = () => {
   return (
     <>
       <Button onClick={() => ref.current.showModal()}>Create a course</Button>
-      
+
       <dialog ref={ref} className={styles["form-dialog"]}>
         <form
           onSubmit={handleFormSubmit}
@@ -119,7 +119,7 @@ const CreateCourseForm = () => {
             min={0}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <div>
+          <div className={styles["buttons-container"]}>
             <Button variant={getVariant()} type="submit">
               Save
             </Button>
@@ -129,7 +129,7 @@ const CreateCourseForm = () => {
           </div>
         </form>
 
-        {isSuccess && <h2>Course successfully created</h2>}
+        {isSuccess && <h2 className={styles["success"]}>Course successfully created</h2>}
 
         {error?.response.data.message}
       </dialog>

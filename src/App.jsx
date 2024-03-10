@@ -12,6 +12,7 @@ import IsAdmin from "./components/IsAdmin";
 import IsAnon from "./components/IsAnon";
 import YoutubeVideosPage from "./pages/YoutubeVideosPage";
 import AdminDashboard from "./pages/AdminDashboard";
+import UserDetailsPage from "./pages/UserDetailsPage";
 import styles from "./App.module.css";
 
 function App() {
@@ -22,6 +23,15 @@ function App() {
 
       <div>
         <Routes>
+          <Route
+            path="/users/:userId"
+            element={
+              <IsAdmin>
+                <UserDetailsPage />
+              </IsAdmin>
+            }
+          />
+
           <Route path="/" element={<HomePage />} />
 
           <Route path="/courses" element={<CourseListPage />} />
@@ -51,8 +61,7 @@ function App() {
             path="/signup"
             element={
               <IsAnon>
-                {" "}
-                <SignupPage />{" "}
+                <SignupPage />
               </IsAnon>
             }
           />
@@ -60,8 +69,7 @@ function App() {
             path="/login"
             element={
               <IsAnon>
-                {" "}
-                <LoginPage />{" "}
+                <LoginPage />
               </IsAnon>
             }
           />

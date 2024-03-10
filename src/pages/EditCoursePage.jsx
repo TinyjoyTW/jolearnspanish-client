@@ -112,7 +112,7 @@ function EditCoursePage() {
       </form>
       <div className={styles["buttons-container"]}>
         <Link to={`/courses/${courseId}`}>
-          <Button variant="primary">Back</Button>
+          <Button variant="outline-secondary">Back</Button>
         </Link>
         <Button className={styles["delete-button"]} onClick={deleteCourse}>
           Delete course
