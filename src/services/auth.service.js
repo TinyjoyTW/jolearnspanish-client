@@ -4,9 +4,8 @@ class AuthService {
   constructor() {
     this.api = axios.create({
       baseURL:
-        process.env.SERVER_URL ||
         import.meta.env.SERVER_URL ||
-        "http://localhost:5005",
+        "https://jolearnspanish-server-dev.adaptable.app/",
     });
     this.api.interceptors.request.use((config) => {
       const storedToken = localStorage.getItem("authToken");
