@@ -4,7 +4,7 @@
 
 > A platform designed specifically for Mandarin speakers to acquire proficiency in Spanish</p>
 
-This is my first full-stack app using React and MERN, a project which I'm still actively working on. 
+This is my first full-stack app using React and MERN, a project I'm still actively working on. 
 
 ## URL to the website
 
